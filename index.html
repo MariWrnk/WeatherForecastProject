@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Прогноз погоды</title>
+        <meta charset="utf-8">        
+        <meta name="author" content="Мария Воронько">
+        <meta name="description" content="Прогноз погоды для разных городов.">
+        <meta name="keywords" content="погода, прогноз, осадки, температура">     
+        <link rel="stylesheet" href="css/style.css">   
+    </head>
+
+    <body>
+        <header>
+            <div id="h">
+                <h1>Погода здесь</h1>
+                <button id="geoUpdate">Обновить геолокацию</button>
+            </div>
+            
+            <section id="mainSection">
+                <div id="currentTemp">
+                    <h2 class="cityName">Saints Petersburg</h2>
+                    <img id="mainIcon" src="resources/weatherIcon.png" alt="icon">
+                    <p id="mainText">8°C</p>
+                </div>
+                <ul>
+                    <li class="parameters"><p class="parName">Ветер</p>
+                        <p class="value">Moderate breeze, 6.0 m/s, North-northwest</p></li>
+                    <li class="parameters"><p class="parName">Облачность</p>
+                        <p class="value">Broken clouds</p></li>
+                    <li class="parameters"><p class="parName">Давление</p>
+                        <p class="value">1013 hpa</p></li>
+                    <li class="parameters"><p class="parName">Влажность</p>
+                        <p class="value">52 %</p></li>
+                    <li class="parameters"><p class="parName">Координаты</p>
+                        <p class="value">[59.88, 30.42]</p></li>                                       
+                </ul>
+            </section>          
+            
+
+        </header>
+
+        <main>
+            <h2>Избранное</h2>
+            <label><input type="text" placeholder="Добавить новый город"></label>
+
+        </main>
+    </body>
+
+</html>

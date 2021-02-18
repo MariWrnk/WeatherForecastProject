@@ -1,0 +1,88 @@
+body{
+    padding: 0% 6%;
+    
+}
+header{
+    border-style: double;    
+}
+
+main{
+    border-style: double;
+    
+}
+
+@media (min-width: 350px) and (max-width: 1024px) {
+    body{
+        font-size: 10px;
+    }
+}
+
+#h{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-style: dotted;
+}
+
+#geoUpdate{
+    margin-right: 43%;
+    padding: 1em 3em;
+}
+
+ul{
+    list-style-type: none;
+    width: 45%;
+    height: 35%;
+    border-style: dotted;
+    margin-top: 0%;
+}
+
+.parameters{
+    background-color:gray;
+    height: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#currentTemp{
+    border-style: dotted;
+    display: flex;
+    align-content: center;    
+    width: 45%;
+    height: 20%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+h2{
+    margin-right: 50%;
+    font-size: 2em;
+}
+
+#mainText{
+    font-size: 8em;      
+    border-style: dotted;
+    margin: 0%;
+    margin-right: 15%;
+}
+
+#mainIcon{
+    display: block;
+    width: 14em;
+    height: 14em;
+    border-style: dotted;   
+    
+}
+
+#mainSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.parName{
+    font-weight: bold;
+}
