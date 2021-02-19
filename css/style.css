@@ -27,6 +27,7 @@ main{
 #geoUpdate{
     margin-right: 43%;
     padding: 0.5em 2em;
+    
 }
 
 ul{
@@ -93,7 +94,7 @@ h2{
     font-weight: bold;
 }
 
-button{
+.circleButtons{
     border: none;
     background: none;  
     height: 3em;  
@@ -130,10 +131,22 @@ h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 45%;
+    width: 100%;
 }
 
 #cities{
     padding: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
+.otherCities{
+    border-style: dotted;
+    width: 45%;
+    margin-bottom: 3%;
+}
+
+.other{
+    width: 100%;
 }
