@@ -1,15 +1,10 @@
 body{
     padding: 0% 6%;
-        
-}
-header{
-    border-style: double;    
+    background-color: #f7f4f4;  
+    color:#464646;   
+    font-family: system-ui;   
 }
 
-main{
-    border-style: double;
-    
-}
 
 @media screen and (min-width: 700px) and (max-width: 1024px) {
     body{
@@ -46,8 +41,8 @@ main{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    border-style: dotted;
     flex-wrap: wrap;
+    margin-bottom: 2%;
 }
 
 #geoUpdate{
@@ -59,6 +54,11 @@ main{
     display: none;
 }
 
+.cityName{
+    font-weight: bold;
+    font-style: italic;
+}
+
 ul{
     list-style-type: none;
 }
@@ -66,7 +66,6 @@ ul{
 .weather{    
     width: 45%;
     height: 35%;
-    border-style: dotted;
     margin-top: 0%;
     padding-left: 0%;
 }
@@ -80,10 +79,10 @@ ul{
     margin: 2% 0%;
     padding-left: 3%;
     padding-right: 3%;
+    color: white;
 }
 
 #currentTemp{
-    border-style: dotted;
     display: flex;
     align-content: center;    
     width: 45%;
@@ -102,7 +101,6 @@ h2{
 
 #mainText{
     font-size: 8em;      
-    border-style: dotted;
     margin: 0%;
     margin-right: 15%;
 }
@@ -110,14 +108,13 @@ h2{
 #mainIcon{
     display: block;
     width: 40%;    
-    border-style: dotted;   
-    
 }
 
 #mainSection{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 3%;
 }
 
 .parName{
@@ -172,7 +169,6 @@ h3{
 }
 
 .otherCities{
-    border-style: dotted;
     width: 45%;
     margin-bottom: 3%;
 }
