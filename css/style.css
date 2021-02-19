@@ -31,10 +31,14 @@ main{
 
 ul{
     list-style-type: none;
+}
+
+.weather{    
     width: 45%;
     height: 35%;
     border-style: dotted;
     margin-top: 0%;
+    padding-left: 0%;
 }
 
 .parameters{
@@ -43,7 +47,7 @@ ul{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2%;
+    margin: 2% 0%;
     padding-left: 3%;
     padding-right: 3%;
 }
@@ -89,13 +93,13 @@ h2{
     font-weight: bold;
 }
 
-#addButton{
+button{
     border: none;
     background: none;  
     height: 3em;  
 }
 
-#addButtonIcon{
+.buttonIcon{
     height: 100%;
 }
 
@@ -106,4 +110,30 @@ input{
 #addCity{
     display: flex;
     align-items: center;
+}
+
+h3{
+    font-size: 1.5em;
+}
+
+.cityTemp{
+    font-size: 3em;
+    margin:0%;
+}
+
+.weatherIcons{
+    display: block;
+    width: 10%;
+}
+
+.cityNameString{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+}
+
+#cities{
+    padding: 0%;
+
 }
