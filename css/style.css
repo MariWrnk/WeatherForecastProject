@@ -1,6 +1,6 @@
 body{
     padding: 0% 6%;
-    
+        
 }
 header{
     border-style: double;    
@@ -17,7 +17,7 @@ main{
     }
 }
 
-#h{
+.headerString{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -26,7 +26,7 @@ main{
 
 #geoUpdate{
     margin-right: 43%;
-    padding: 1em 3em;
+    padding: 0.5em 2em;
 }
 
 ul{
@@ -58,9 +58,12 @@ ul{
     justify-content: space-between;
 }
 
-h2{
-    margin-right: 50%;
+h2{    
     font-size: 2em;
+}
+
+#currentCity{
+    margin-right: 50%;
 }
 
 #mainText{
@@ -72,8 +75,7 @@ h2{
 
 #mainIcon{
     display: block;
-    width: 14em;
-    height: 14em;
+    width: 40%;    
     border-style: dotted;   
     
 }
@@ -85,4 +87,23 @@ h2{
 
 .parName{
     font-weight: bold;
+}
+
+#addButton{
+    border: none;
+    background: none;  
+    height: 3em;  
+}
+
+#addButtonIcon{
+    height: 100%;
+}
+
+input{
+    padding: 1em 3em;
+}
+
+#addCity{
+    display: flex;
+    align-items: center;
 }

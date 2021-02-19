@@ -11,14 +11,14 @@
 
     <body>
         <header>
-            <div id="h">
+            <div class="headerString">
                 <h1>Погода здесь</h1>
                 <button id="geoUpdate">Обновить геолокацию</button>
             </div>
             
             <section id="mainSection">
                 <div id="currentTemp">
-                    <h2 class="cityName">Saints Petersburg</h2>
+                    <h2 class="cityName" id="currentCity">Saints Petersburg</h2>
                     <img id="mainIcon" src="resources/weatherIcon.png" alt="icon">
                     <p id="mainText">8°C</p>
                 </div>
@@ -40,8 +40,15 @@
         </header>
 
         <main>
-            <h2>Избранное</h2>
-            <label><input type="text" placeholder="Добавить новый город"></label>
+            <div class="headerString">
+                <h2>Избранное</h2>
+                <div id="addCity">
+                    <label><input type="text" placeholder="Добавить новый город"></label>
+                    <button id="addButton"><img src="resources/addButtonIcon.png" id="addButtonIcon"></button>
+                </div>
+            </div>
+            
+            
 
         </main>
     </body>
