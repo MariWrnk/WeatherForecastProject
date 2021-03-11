@@ -150,7 +150,7 @@ h3{
     width: 100%;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 350px) {
 
     body{
         font-size: 2vmax;
