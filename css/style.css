@@ -3,7 +3,7 @@ body{
     background-color: #f7f4f4;  
     color:#464646;   
     font-family: system-ui;
-    font-size: 1vmax;   
+    font-size: 1.1vmax;   
 }
 
 .headerString{
@@ -17,7 +17,7 @@ body{
 #geoUpdate{
     margin-right: 43%;
     padding: 1vmin 2vmax;  
-    width: 18%;
+    width: 20%;
     height: 3%;
     font-size: 100%;
 }
@@ -78,7 +78,7 @@ h2{
 }
 
 #mainText{
-    font-size: 8vmax;      
+    font-size: 7vmax;      
     margin: 0%;
 }
 
@@ -119,7 +119,7 @@ input{
 }
 
 h3{
-    font-size: 1.5em;
+    font-size: 2.3vmax;
 }
 
 .cityTemp{
@@ -172,7 +172,7 @@ h3{
     }
 
     #mainText{
-        font-size: 20vmin;
+        font-size: 17vmin;
     }
     
     #geoUpdate{

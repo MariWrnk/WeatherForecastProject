@@ -19,21 +19,21 @@
             
             <section id="mainSection">
                 <div id="currentTemp">
-                    <h2 class="cityName" id="currentCity">Saints Petersburg</h2>
+                    <h2 class="cityName" id="currentCity"></h2>
                     <div id="temp">
                         <img id="mainIcon" src="resources/weatherIcon.png" alt="icon">
-                        <p id="mainText">8°C</p>
+                        <p id="mainText"><span id="currTempValue"></span>°C</p>
                     </div>                    
                 </div>
                 <ul class="weather">
                     <li class="parameters"><p class="parName">Ветер</p>
-                        <p class="value">Moderate breeze, 6.0 m/s, North-northwest</p></li>
+                        <p class="value"></p></li>
                     <li class="parameters"><p class="parName">Облачность</p>
-                        <p class="value">Broken clouds</p></li>
+                        <p class="value"></p></li>
                     <li class="parameters"><p class="parName">Давление</p>
-                        <p class="value">1013 hpa</p></li>
+                        <p class="value"></p></li>
                     <li class="parameters"><p class="parName">Влажность</p>
-                        <p class="value">52 %</p></li>
+                        <p class="value"></p></li>
                     <li class="parameters"><p class="parName">Координаты</p>
                         <p class="value">[59.88, 30.42]</p></li>                                       
                 </ul>
@@ -55,7 +55,7 @@
                 <li class="otherCities">
                     <div class="cityNameString">
                     <h3 class="cityName">Moskow</h3>
-                    <p class="cityTemp">5°C</p>
+                    <p class="cityTemp"><span class="tempValue">5</span>°C</p>
                     <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
                     <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
                     </div>
@@ -75,7 +75,7 @@
                 <li class="otherCities">
                     <div class="cityNameString">
                     <h3 class="cityName">Helsinki</h3>
-                    <p class="cityTemp">3°C</p>
+                    <p class="cityTemp"><span class="tempValue"></span>°C</p>
                     <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
                     <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
                     </div>
@@ -95,7 +95,7 @@
                 <li class="otherCities">
                     <div class="cityNameString">
                     <h3 class="cityName">Moskow</h3>
-                    <p class="cityTemp">5°C</p>
+                    <p class="cityTemp"><span class="tempValue"></span>°C</p>
                     <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
                     <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
                     </div>
@@ -115,7 +115,7 @@
                 <li class="otherCities">
                     <div class="cityNameString">
                     <h3 class="cityName">Helsinki</h3>
-                    <p class="cityTemp">3°C</p>
+                    <p class="cityTemp"><span class="tempValue"></span>°C</p>
                     <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
                     <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
                     </div>
@@ -135,7 +135,7 @@
                 <li class="otherCities">
                     <div class="cityNameString">
                     <h3 class="cityName">Moskow</h3>
-                    <p class="cityTemp">5°C</p>
+                    <p class="cityTemp"><span class="tempValue"></span>°C</p>
                     <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
                     <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
                     </div>
@@ -155,7 +155,7 @@
                 <li class="otherCities">
                     <div class="cityNameString">
                     <h3 class="cityName">Helsinki</h3>
-                    <p class="cityTemp">3°C</p>
+                    <p class="cityTemp"><span class="tempValue"></span>°C</p>
                     <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
                     <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
                     </div>
@@ -172,11 +172,33 @@
                             <p class="value">[59.88, 30.42]</p></li>                                       
                     </ul>
                 </li>
-            </ul>
-            
+                <template id="favTemplate">
+                    <li class="otherCities">
+                        <div class="cityNameString">
+                        <h3 class="cityName">Template</h3>
+                        <p class="cityTemp"><span class="tempValue"></span>°C</p>
+                        <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
+                        <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
+                        </div>
+                        <ul class="weather other">
+                            <li class="parameters"><p class="parName">Ветер</p>
+                                <p class="value">Moderate breeze, 6.0 m/s, North-northwest</p></li>
+                            <li class="parameters"><p class="parName">Облачность</p>
+                                <p class="value">Broken clouds</p></li>
+                            <li class="parameters"><p class="parName">Давление</p>
+                                <p class="value">1013 hpa</p></li>
+                            <li class="parameters"><p class="parName">Влажность</p>
+                                <p class="value">52 %</p></li>
+                            <li class="parameters"><p class="parName">Координаты</p>
+                                <p class="value">[59.88, 30.42]</p></li>                                       
+                        </ul>
+                    </li>
+                </template>
+            </ul>           
             
 
         </main>
+        <script src="js/lab2.js"></script>
     </body>
 
 </html>
