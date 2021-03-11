@@ -2,6 +2,8 @@ const key = 'cf3d5c2d503cd2cec261b725dc1a4374';
 
 let temp = document.querySelector('#favTemplate')
 
+localStorage.setItem('defaultCity', 'Saint Petersburg');
+
 function getWeatherByCityName(city){
   return fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=' + key)
     .then((response) => {
@@ -34,12 +36,7 @@ function getWeatherByCoords(lon, lat){
     });
 }
 
-getWeatherByCityName('Saint Petersburg').then((data) => {
-  if(data != null){
-    console.log(data);
-    fullCurrentCity(data);
-  }
-});
+
 
 function fullCurrentCity(data){
   currentCity.innerHTML = data.name;
@@ -67,18 +64,57 @@ function fullFavouriteCity(data){
   
 }
 
-getWeatherByCityName('Minsk').then((data) => {
-  if(data != null){
-    console.log(data);
-    fullFavouriteCity(data);
+function setDefaultCity(){
+  getWeatherByCityName(localStorage.getItem('defaultCity')).then((data) => {
+    if(data != null){
+      fullCurrentCity(data);
+    }
+  });
+}
+
+function addFavouriteCity(city, isNew){
+  getWeatherByCityName(city).then((data) => {
+    if(data != null){
+      fullFavouriteCity(data);
+      if(isNew){
+        if (localStorage.getItem('favouriteCities') != undefined){
+          localStorage.favouriteCities = localStorage.favouriteCities + ' ' + city;
+        }
+        else{
+          localStorage.setItem('favouriteCities', city);
+        }
+      }      
+    }
+  });
+}
+
+function showFavouriteCities(){
+  if (localStorage.getItem('favouriteCities') != null){
+    fc = localStorage.favouriteCities.split(' ');
+    fc.forEach(element => {
+      addFavouriteCity(element, false);
+    });
   }
-});
+}
 
 getWeatherByCoords(38.928333, 55.997223).then((data) =>{
   if(data != null){
     console.log(data);
   }
 });
+
+addFavButton.onclick = function(){
+  let newCityName = cityInput.value;
+  addFavouriteCity(newCityName, true);
+  cityInput.value = '';  
+};
+
+
+
+setDefaultCity();
+showFavouriteCities();
+
+
 
 
 
