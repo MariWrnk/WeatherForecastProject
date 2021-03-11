@@ -2,7 +2,8 @@ body{
     padding: 0% 6%;
     background-color: #f7f4f4;  
     color:#464646;   
-    font-family: system-ui;   
+    font-family: system-ui;
+    font-size: 1vmax;   
 }
 
 .headerString{
@@ -15,7 +16,10 @@ body{
 
 #geoUpdate{
     margin-right: 43%;
-    padding: 0.5em 2em;    
+    padding: 1vmin 2vmax;  
+    width: 18%;
+    height: 3%;
+    font-size: 100%;
 }
 
 #smallGeoUpdate{
@@ -68,7 +72,7 @@ h2{
 }
 
 #mainText{
-    font-size: 8em;      
+    font-size: 7vmax;      
     margin: 0%;
     margin-right: 15%;
 }
@@ -92,7 +96,7 @@ h2{
 .circleButtons{
     border: none;
     background: none;  
-    height: 3em;  
+    height: 6vmin;  
 }
 
 .buttonIcon{
@@ -101,6 +105,7 @@ h2{
 
 input{
     padding: 1em 3em;
+    font-size: 100%;
 }
 
 #addCity{
@@ -145,30 +150,23 @@ h3{
     width: 100%;
 }
 
-@media (min-width: 700px) and (max-width: 1024px) {
-    body{
-        font-size: 0.8em;
-    }
-}
+@media all and (max-width: 500px) {
 
-@media (min-width: 350px) and (max-width: 700px) {
     body{
-        font-size: 0.6em;
-    }
-}
-
-@media (max-width: 350px) {
-    body{
-        font-size: 0.6em;
+        font-size: 2vmax;
     }
 
+    #mainText{
+        font-size: 11vmax;
+    }
+    
     #geoUpdate{
         display: none;
     }
 
     #smallGeoUpdate{
         display: block;
-        margin-right: 15%;
+        margin-right: 35%;
     }
 
     #currentTemp, .weather, #chosen, #addCity, .otherCities{
