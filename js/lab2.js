@@ -46,7 +46,8 @@ function fullCurrentCity(data){
   params[1].innerHTML = data.clouds.all + ' %';
   params[2].innerHTML = data.main.pressure + ' hpa';
   params[3].innerHTML = data.main.humidity + ' %';
-  params[4].innerHTML = '[' + data.coord.lon + ', ' + data.coord.lat + ']';
+  params[4].innerHTML = '[' + data.coord.lon + ', ' + data.coord.lat + ']';  
+  mainIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png')
 }
 
 function fullFavouriteCity(data){
@@ -59,6 +60,7 @@ function fullFavouriteCity(data){
   params[2].innerHTML = data.main.pressure + ' hpa';
   params[3].innerHTML = data.main.humidity + ' %';
   params[4].innerHTML = '[' + data.coord.lon + ', ' + data.coord.lat + ']';
+  clone.querySelector('.weatherIcons').setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
   let list = document.querySelector('#cities')
   list.prepend(clone)
   

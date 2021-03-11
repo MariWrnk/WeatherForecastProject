@@ -66,15 +66,12 @@ ul{
 #temp{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
 }
 
 h2{    
     font-size: 2em;
-}
-
-#currentCity{
-    margin-right: 50%;
 }
 
 #mainText{
@@ -83,8 +80,9 @@ h2{
 }
 
 #mainIcon{
-    display: block;
+    display: block; 
     width: 40%;    
+    background-color: #d4d3d3;
 }
 
 #mainSection{
@@ -129,14 +127,15 @@ h3{
 
 .weatherIcons{
     display: block;
-    width: 10%;
+    width: 20%;
+    background-color: #d4d3d3;
 }
 
 .cityNameString{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 100%;    
 }
 
 #cities{
@@ -155,14 +154,14 @@ h3{
     width: 100%;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 550px) {
     body{
         font-size: 1.5vmin;
     }
 
     #mainText{
-        font-size: 9vmin;
-    }
+        font-size: 9vmin;        
+    }    
 }
 
 @media all and (max-width: 350px) {
@@ -173,6 +172,14 @@ h3{
 
     #mainText{
         font-size: 17vmin;
+    }
+
+    h3{
+        font-size: 7vmin;
+    }
+
+    .cityTemp{
+        font-size: 8vmin;
     }
     
     #geoUpdate{
