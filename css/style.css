@@ -155,14 +155,24 @@ h3{
     width: 100%;
 }
 
-@media all and (max-width: 350px) {
-
+@media all and (max-width: 500px) {
     body{
-        font-size: 2vmax;
+        font-size: 1.5vmin;
     }
 
     #mainText{
-        font-size: 11vmax;
+        font-size: 9vmin;
+    }
+}
+
+@media all and (max-width: 350px) {
+
+    body{
+        font-size: 3vmin;
+    }
+
+    #mainText{
+        font-size: 20vmin;
     }
     
     #geoUpdate{
