@@ -63,6 +63,12 @@ ul{
     justify-content: space-between;
 }
 
+#temp{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
 h2{    
     font-size: 2em;
 }
@@ -72,9 +78,8 @@ h2{
 }
 
 #mainText{
-    font-size: 7vmax;      
+    font-size: 8vmax;      
     margin: 0%;
-    margin-right: 15%;
 }
 
 #mainIcon{
@@ -104,7 +109,7 @@ h2{
 }
 
 input{
-    padding: 1em 3em;
+    padding: 1vmax 3vmax;
     font-size: 100%;
 }
 
