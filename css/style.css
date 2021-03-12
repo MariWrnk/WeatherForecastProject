@@ -150,6 +150,10 @@ h3, #mainLoader{
     margin-bottom: 3%;
 }
 
+#cities .loader{
+    width: 45%;
+}
+
 .other{
     width: 100%;
 }
@@ -158,7 +162,6 @@ h3, #mainLoader{
     background: none; 
     text-align: center;
   }
-
   
   .mainLoaderIcon{
       height: 20vmin;

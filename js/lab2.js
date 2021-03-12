@@ -51,7 +51,7 @@ function fullFavouriteCity(data){
   params = setParameters(clone, data); 
   clone.querySelector('.weatherIcons').setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'); 
   let list = document.querySelector('#cities')
-  list.prepend(clone) 
+  list.prepend(clone)
 }
 
 function setParameters(element, data){
@@ -75,8 +75,11 @@ function setDefaultCity(){
 }
 
 function addFavouriteCity(city, isNew){
+  let lclone = loaderTemp.content.cloneNode(true);
+  document.querySelector('#cities').append(lclone);
   getWeatherByCityName(city).then((data) => {
     if(data != null){
+      document.querySelector('#cities').querySelector('.loader').remove()
       fullFavouriteCity(data);      
       if(isNew){
         if (localStorage.getItem('favouriteCities') != undefined){
@@ -108,7 +111,7 @@ function removeFavCity(city){
 
 function getLocation() {  
   mainSection.style.display = 'none';
-  mlclone = mlTemp.content.cloneNode(true);
+  let mlclone = mlTemp.content.cloneNode(true);
   mainSection.parentElement.append(mlclone);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position => {
@@ -130,30 +133,6 @@ addFavButton.onclick = function(){
   addFavouriteCity(newCityName, true);
   cityInput.value = '';  
 };
-
-/*function hideMain(){
-  currentTemp.style.visibility = 'hidden';
-  document.querySelector('.weather').style.visibility = 'hidden';
-  document.querySelector('.loader').style.display = 'block';
-}
-
-function loadedMain(){
-  currentTemp.style.visibility = 'visible';
-  document.querySelector('.weather').style.visibility = 'visible';
-  document.querySelector('.loader').style.display = 'none';
-}
-
-function hideCity(city){
-  city.querySelector('.cityNameString').style.visibility = 'hidden';
-  city.querySelector('.weather').style.visibility = 'hidden';
-  city.querySelector('.loader').style.display = 'block';
-}
-
-function loadedCity(city){
-  city.querySelector('.cityNameString').style.visibility = 'visible';
-  city.querySelector('.weather').style.visibility = 'visible';
-  city.querySelector('.loader').style.display = 'none';
-}*/
 
 getLocation();
 showFavouriteCities();
