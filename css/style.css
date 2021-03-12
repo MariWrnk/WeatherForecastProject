@@ -116,7 +116,7 @@ input{
     align-items: center;
 }
 
-h3{
+h3, #mainLoader{
     font-size: 2.3vmax;
 }
 
@@ -154,6 +154,20 @@ h3{
     width: 100%;
 }
 
+.loader {
+    background: none; 
+    text-align: center;
+  }
+
+  
+  .mainLoaderIcon{
+      height: 20vmin;
+  }
+
+  .loaderIcon{
+      height: 10vmin;
+  }
+
 @media all and (max-width: 550px) {
     body{
         font-size: 1.5vmin;
@@ -174,7 +188,7 @@ h3{
         font-size: 17vmin;
     }
 
-    h3{
+    h3, #mainLoader{
         font-size: 7vmin;
     }
 

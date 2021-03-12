@@ -13,11 +13,11 @@
         <header>
             <div class="headerString">
                 <h1>Погода здесь</h1>
-                <button id="geoUpdate">Обновить геолокацию</button>
-                <button class="circleButtons" id="smallGeoUpdate"><img src="resources/updateIcon.png" class="buttonIcon"></button>
+                <button id="geoUpdate" onclick="getLocation()">Обновить геолокацию</button>
+                <button class="circleButtons" id="smallGeoUpdate" onclick="getLocation()"><img src="resources/updateIcon.png" class="buttonIcon"></button>
             </div>
             
-            <section id="mainSection">
+            <section id="mainSection">               
                 <div id="currentTemp">
                     <h2 class="cityName" id="currentCity"></h2>
                     <div id="temp">
@@ -37,7 +37,15 @@
                     <li class="parameters"><p class="parName">Координаты</p>
                         <p class="value">[59.88, 30.42]</p></li>                                       
                 </ul>
-            </section>          
+            </section>
+            
+            <template id="mlTemp">
+                <div class="loader">
+                    <img src="resources/updateIcon.png"  class="mainLoaderIcon">
+                    <p>Загрузка данных...</p>
+                </div> 
+            </template>
+                   
             
 
         </header>
@@ -72,6 +80,12 @@
                             <li class="parameters"><p class="parName">Координаты</p>
                                 <p class="value">[59.88, 30.42]</p></li>                                       
                         </ul>
+                    </li>
+                </template>
+                <template id="loaderTemp">
+                    <li class="loader">
+                        <img src="resources/updateIcon.png"  class="loaderIcon">
+                        <p>Загрузка данных...</p>
                     </li>
                 </template>
             </ul>           
