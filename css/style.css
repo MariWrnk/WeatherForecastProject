@@ -99,7 +99,7 @@ h2{
 .circleButtons, .closeButtons{
     border: none;
     background: none;  
-    height: 6vmin;  
+    height: 5vmin;  
 }
 
 .buttonIcon{
@@ -178,7 +178,11 @@ h3, #mainLoader{
 
     #mainText{
         font-size: 9vmin;        
-    }    
+    }  
+    
+    .cityTemp{
+        font-size: 3.5vmin;
+    }
 }
 
 @media all and (max-width: 350px) {
@@ -188,7 +192,7 @@ h3, #mainLoader{
     }
 
     #mainText{
-        font-size: 17vmin;
+        font-size: 16vmin;
     }
 
     h3, #mainLoader{
@@ -197,6 +201,10 @@ h3, #mainLoader{
 
     .cityTemp{
         font-size: 8vmin;
+    }
+
+    .circleButtons, .closeButtons{
+        height: 7vmin;
     }
     
     #geoUpdate{
