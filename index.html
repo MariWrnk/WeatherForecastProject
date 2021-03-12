@@ -21,7 +21,7 @@
                 <div id="currentTemp">
                     <h2 class="cityName" id="currentCity"></h2>
                     <div id="temp">
-                        <img id="mainIcon" src="resources/weatherIcon.png" alt="icon">
+                        <img id="mainIcon" alt="icon">
                         <p id="mainText"><span id="currTempValue"></span>°C</p>
                     </div>                    
                 </div>
@@ -58,7 +58,7 @@
                             <h3 class="cityName">Template</h3>
                             <p class="cityTemp"><span class="tempValue"></span>°C</p>
                             <img src="resources/weatherIcon.png" alt="icon" class="weatherIcons">
-                            <button class="circleButtons"><img src="resources/crossIcon.png" class="buttonIcon"></button>
+                            <button class="closeButtons" onclick="removeFavCity(this.parentElement.parentElement);"><img src="resources/crossIcon.png" class="buttonIcon" ></button>
                         </div>
                         <ul class="weather other">
                             <li class="parameters"><p class="parName">Ветер</p>

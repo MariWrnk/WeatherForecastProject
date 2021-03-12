@@ -96,7 +96,7 @@ h2{
     font-weight: bold;
 }
 
-.circleButtons{
+.circleButtons, .closeButtons{
     border: none;
     background: none;  
     height: 6vmin;  

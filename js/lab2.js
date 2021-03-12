@@ -59,11 +59,10 @@ function fullFavouriteCity(data){
   params[1].innerHTML = data.clouds.all + ' %';
   params[2].innerHTML = data.main.pressure + ' hpa';
   params[3].innerHTML = data.main.humidity + ' %';
-  params[4].innerHTML = '[' + data.coord.lon + ', ' + data.coord.lat + ']';
-  clone.querySelector('.weatherIcons').setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');
+  params[4].innerHTML = '[' + data.coord.lon + ', ' + data.coord.lat + ']';  
+  clone.querySelector('.weatherIcons').setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png');  
   let list = document.querySelector('#cities')
-  list.prepend(clone)
-  
+  list.prepend(clone)  
 }
 
 function setDefaultCity(){
@@ -77,7 +76,7 @@ function setDefaultCity(){
 function addFavouriteCity(city, isNew){
   getWeatherByCityName(city).then((data) => {
     if(data != null){
-      fullFavouriteCity(data);
+      fullFavouriteCity(data);      
       if(isNew){
         if (localStorage.getItem('favouriteCities') != undefined){
           localStorage.favouriteCities = localStorage.favouriteCities + ' ' + city;
@@ -99,11 +98,27 @@ function showFavouriteCities(){
   }
 }
 
-getWeatherByCoords(38.928333, 55.997223).then((data) =>{
-  if(data != null){
-    console.log(data);
-  }
-});
+function removeFavCity(city){
+  cityName = city.querySelector('.cityName').innerHTML;
+  console.log(localStorage.favouriteCities);
+  city.remove();
+  localStorage.favouriteCities = localStorage.favouriteCities.replace(cityName + ' ', '');
+  localStorage.favouriteCities = localStorage.favouriteCities.replace(' ' + cityName, '');
+}
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position => {
+      getWeatherByCoords(position.coords.longitude, position.coords.latitude).then((data) =>{
+        if(data != null){
+          fullCurrentCity(data);
+          return;
+        }
+      });
+    }));
+  } 
+  setDefaultCity();
+}
 
 addFavButton.onclick = function(){
   let newCityName = cityInput.value;
@@ -111,10 +126,11 @@ addFavButton.onclick = function(){
   cityInput.value = '';  
 };
 
-
-
-setDefaultCity();
+getLocation();
 showFavouriteCities();
+
+
+
 
 
 
