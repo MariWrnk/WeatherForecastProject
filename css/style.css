@@ -3,7 +3,7 @@ body{
     background-color: #f7f4f4;  
     color:#464646;   
     font-family: system-ui;
-    font-size: 1.1vmax;   
+    font-size: 1.1vmax;  
 }
 
 .headerString{
@@ -11,7 +11,7 @@ body{
     align-items: baseline;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 2%;
+    margin-bottom: 2%;    
 }
 
 #geoUpdate{
@@ -89,7 +89,7 @@ h2{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 3%;
+    margin-bottom: 3%;    
 }
 
 .parName{
@@ -201,7 +201,7 @@ h3, #mainLoader{
     }
 
     #mainText{
-        font-size: 9vmin;        
+        font-size: 7vmin;        
     }  
     
     .cityTemp{
@@ -210,6 +210,19 @@ h3, #mainLoader{
 
     #addCity{
         width: 50%;
+    }
+
+    .circleButtons, .closeButtons{
+        height: 4vmin;
+    }
+
+    h3{
+        font-size: 3.5vmin;
+        margin-right: 3%;
+    }
+
+    .cityTemp{
+        font-size: 3vmin;        
     }
 }
 
@@ -220,19 +233,19 @@ h3, #mainLoader{
     }
 
     #mainText{
-        font-size: 16vmin;
+        font-size: 13vmin;
     }
 
     h3, #mainLoader{
-        font-size: 7vmin;
+        font-size: 6vmin;
     }
 
     .cityTemp{
-        font-size: 8vmin;
+        font-size: 7vmin;
     }
 
     .circleButtons, .closeButtons{
-        height: 7vmin;
+        height: 5vmin;
     }
     
     #geoUpdate{
@@ -245,6 +258,7 @@ h3, #mainLoader{
     }
 
     #currentTemp, .weather, #chosen, #addCity, .otherCities{
+        width: 100%;
         max-width: 100%;
     }    
 }

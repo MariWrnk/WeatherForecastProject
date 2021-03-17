@@ -170,8 +170,6 @@ addCity.addEventListener('submit', function(event){
 
 getLocation();
 showFavouriteCities();
-//localStorage.removeItem('favouriteCities');
-//console.log(localStorage.favouriteCities);
 
 
 
