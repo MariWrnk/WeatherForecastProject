@@ -245,6 +245,6 @@ h3, #mainLoader{
     }
 
     #currentTemp, .weather, #chosen, #addCity, .otherCities{
-        width: 100%;
+        max-width: 100%;
     }    
 }
