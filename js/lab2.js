@@ -75,8 +75,9 @@ function setDefaultCity(){
 }
 
 function addFavouriteCity(city, isNew){
+  city = city[0].toUpperCase () + city.substr(1).toLowerCase ();
   let lclone = loaderTemp.content.cloneNode(true);
-  document.querySelector('#cities').append(lclone);
+  document.querySelector('#cities').prepend(lclone);
   getWeatherByCityName(city).then((data) => {
     if(data != null){
       document.querySelector('#cities').querySelector('.loader').remove()
@@ -105,6 +106,7 @@ function showFavouriteCities(){
 function removeFavCity(city){
   cityName = city.querySelector('.cityName').innerHTML;
   city.remove();
+  console.log(localStorage.favouriteCities);
   localStorage.favouriteCities = localStorage.favouriteCities.replace(cityName + ' ', '');
   localStorage.favouriteCities = localStorage.favouriteCities.replace(' ' + cityName, '');
 }
@@ -134,6 +136,7 @@ addFavButton.onclick = function(){
   cityInput.value = '';  
 };
 
+localStorage.removeItem('favouriteCities');
 getLocation();
 showFavouriteCities();
 
