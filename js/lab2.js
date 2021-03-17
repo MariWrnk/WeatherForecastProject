@@ -51,7 +51,9 @@ function fullFavouriteCity(data){
   params = setParameters(clone, data); 
   clone.querySelector('.weatherIcons').setAttribute('src', 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'); 
   let list = document.querySelector('#cities')
-  list.prepend(clone)
+  list.prepend(clone)  
+  document.querySelector('.otherCities').id = data.name;
+  activateButton(cities.querySelector('button'), data.name);
 }
 
 function setParameters(element, data){
@@ -110,14 +112,21 @@ function showFavouriteCities(){
   }
 }
 
-function removeFavCity(city){
-  let cityName = city.querySelector('.cityName').innerHTML;
+function activateButton(button, cityName){
+  button.addEventListener('click', () => {
+  cn = '#' + cityName;
+  city = document.querySelector(cn);
   city.remove();
-  let cities = localStorage.favouriteCities.split(' ');
+  let citiesList = localStorage.favouriteCities.split(' ');
   let newCities = '';
-  for(let i = 0; i < cities.length; i++){
-    if(cities[i] != cityName){
-      newCities = newCities + ' ' + cities[i];
+  for(let i = 0; i < citiesList.length; i++){
+    if(citiesList[i] != cityName){
+      if(newCities == ''){
+        newCities = citiesList[i];
+      }
+      else{
+        newCities = newCities + ' ' + citiesList[i];
+      }      
     }
   }
   if(newCities != ''){
@@ -126,6 +135,7 @@ function removeFavCity(city){
   else{
     localStorage.removeItem('favouriteCities');
   }
+  });
 }
 
 function getLocation() {  
