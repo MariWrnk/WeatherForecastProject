@@ -106,14 +106,26 @@ h2{
     height: 100%;
 }
 
+#addFavButton{
+    margin-left: 1%;
+}
+
 input{
-    padding: 1vmax 3vmax;
+    padding: 1vmax 2vmax;
     font-size: 100%;
+    text-overflow: ellipsis;
+    width: 70%;
+    text-align: center;
+}
+
+label{
+    width: 100%;
 }
 
 #addCity{
     display: flex;
     align-items: center;
+    justify-content: right;
 }
 
 h3, #mainLoader{
@@ -171,7 +183,19 @@ h3, #mainLoader{
       height: 10vmin;
   }
 
-@media all and (max-width: 550px) {
+@media all and (min-width: 1001px) and (max-width: 1700px){
+    #addCity{
+        width: 32%;
+    }
+}
+
+@media all and (min-width: 550px) and (max-width: 1000px){
+    #addCity{
+        width: 43%;
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 550px) {
     body{
         font-size: 1.5vmin;
     }
@@ -183,9 +207,13 @@ h3, #mainLoader{
     .cityTemp{
         font-size: 3.5vmin;
     }
+
+    #addCity{
+        width: 50%;
+    }
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 320px) {
 
     body{
         font-size: 3vmin;
