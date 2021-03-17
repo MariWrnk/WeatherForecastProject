@@ -75,12 +75,18 @@ function setDefaultCity(){
 }
 
 function addFavouriteCity(city, isNew){
-  city = city[0].toUpperCase () + city.substr(1).toLowerCase ();
+  city = city.charAt(0).toUpperCase () + city.substr(1).toLowerCase ();
   let lclone = loaderTemp.content.cloneNode(true);
   document.querySelector('#cities').prepend(lclone);
+  if(localStorage.getItem('favouriteCities') != undefined){
+    if(localStorage.favouriteCities.includes(city) & isNew){
+      document.querySelector('#cities').querySelector('.loader').remove();
+      alert('City is already in favourites!');      
+      return;
+    }
+  }
   getWeatherByCityName(city).then((data) => {
     if(data != null){
-      document.querySelector('#cities').querySelector('.loader').remove()
       fullFavouriteCity(data);      
       if(isNew){
         if (localStorage.getItem('favouriteCities') != undefined){
@@ -91,7 +97,8 @@ function addFavouriteCity(city, isNew){
         }
       }      
     }
-  });
+    document.querySelector('#cities').querySelector('.loader').remove();
+  });    
 }
 
 function showFavouriteCities(){
@@ -104,11 +111,21 @@ function showFavouriteCities(){
 }
 
 function removeFavCity(city){
-  cityName = city.querySelector('.cityName').innerHTML;
+  let cityName = city.querySelector('.cityName').innerHTML;
   city.remove();
-  console.log(localStorage.favouriteCities);
-  localStorage.favouriteCities = localStorage.favouriteCities.replace(cityName + ' ', '');
-  localStorage.favouriteCities = localStorage.favouriteCities.replace(' ' + cityName, '');
+  let cities = localStorage.favouriteCities.split(' ');
+  let newCities = '';
+  for(let i = 0; i < cities.length; i++){
+    if(cities[i] != cityName){
+      newCities = newCities + ' ' + cities[i];
+    }
+  }
+  if(newCities != ''){
+    localStorage.favouriteCities = newCities;
+  }
+  else{
+    localStorage.removeItem('favouriteCities');
+  }
 }
 
 function getLocation() {  
@@ -120,7 +137,9 @@ function getLocation() {
       getWeatherByCoords(position.coords.longitude, position.coords.latitude).then((data) =>{
         if(data != null){
           fullCurrentCity(data);
-          document.querySelector('header').querySelector('.loader').remove();
+          if(document.querySelector('header').querySelector('.loader') != null){
+            document.querySelector('header').querySelector('.loader').remove();
+          }          
           mainSection.style.display = mainDisp;
           return;
         }
@@ -130,15 +149,19 @@ function getLocation() {
   setDefaultCity();
 }
 
-addFavButton.onclick = function(){
-  let newCityName = cityInput.value;
-  addFavouriteCity(newCityName, true);
-  cityInput.value = '';  
-};
+addCity.addEventListener('submit', function(event){
+  event.preventDefault();
+  let newCityName = cityInput.value; 
+  if(newCityName != ''){
+    addFavouriteCity(newCityName, true);
+  }   
+  cityInput.value = '';
+});
 
-localStorage.removeItem('favouriteCities');
 getLocation();
 showFavouriteCities();
+//localStorage.removeItem('favouriteCities');
+//console.log(localStorage.favouriteCities);
 
 
 
