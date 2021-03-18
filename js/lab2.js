@@ -159,6 +159,14 @@ function getLocation() {
   setDefaultCity();
 }
 
+smallGeoUpdate.addEventListener('clock', () => {
+  getLocation();
+})
+
+geoUpdate.addEventListener('clock', () => {
+  getLocation();
+})
+
 addCity.addEventListener('submit', function(event){
   event.preventDefault();
   let newCityName = cityInput.value; 
