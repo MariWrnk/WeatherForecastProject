@@ -159,11 +159,11 @@ function getLocation() {
   setDefaultCity();
 }
 
-smallGeoUpdate.addEventListener('clock', () => {
+smallGeoUpdate.addEventListener('click', () => {
   getLocation();
 })
 
-geoUpdate.addEventListener('clock', () => {
+geoUpdate.addEventListener('click', () => {
   getLocation();
 })
 
