@@ -1,0 +1,29 @@
+{
+  "name": "weather-website",
+  "version": "1.0.0",
+  "description": "Current weather",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariWrnk/WeatherForecastProject.git"
+  },
+  "keywords": [
+    "weather",
+    "temperature"
+  ],
+  "author": "MariWrnk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariWrnk/WeatherForecastProject/issues"
+  },
+  "homepage": "https://github.com/MariWrnk/WeatherForecastProject#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

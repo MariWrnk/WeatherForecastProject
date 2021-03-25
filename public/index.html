@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Погода</title>
+        <meta charset="utf-8">        
+        <meta name="author" content="Мария Воронько">
+        <meta name="description" content="Прогноз погоды для разных городов.">
+        <meta name="keywords" content="погода, прогноз, осадки, температура">     
+        <link rel="stylesheet" href="style.css"> 
+    </head>
+
+    <body>
+        <header>
+            <div class="headerString">
+                <h1>Погода здесь</h1>
+                <button id="geoUpdate">Обновить геолокацию</button>
+                <button class="circleButtons" id="smallGeoUpdate"><img src="resources/updateIcon.png" class="buttonIcon"></button>
+            </div>
+            
+            <section id="mainSection">               
+                <div id="currentTemp">
+                    <h2 class="cityName" id="currentCity"></h2>
+                    <div id="temp">
+                        <img id="mainIcon" alt="icon">
+                        <p id="mainText"><span id="currTempValue"></span>°C</p>
+                    </div>                    
+                </div>
+                <ul class="weather">
+                    <li class="parameters"><p class="parName">Ветер</p>
+                        <p class="value"></p></li>
+                    <li class="parameters"><p class="parName">Облачность</p>
+                        <p class="value"></p></li>
+                    <li class="parameters"><p class="parName">Давление</p>
+                        <p class="value"></p></li>
+                    <li class="parameters"><p class="parName">Влажность</p>
+                        <p class="value"></p></li>
+                    <li class="parameters"><p class="parName">Координаты</p>
+                        <p class="value">[59.88, 30.42]</p></li>                                       
+                </ul>
+            </section>
+            
+            <template id="mlTemp">
+                <div class="loader">
+                    <img src="resources/updateIcon.png"  class="mainLoaderIcon">
+                    <p>Загрузка данных...</p>
+                </div> 
+            </template>
+                   
+            
+
+        </header>
+
+        <main>
+            <div class="headerString">
+                <h2 id="chosen">Избранное</h2>
+                <form id="addCity">
+                    <label><input type="text" placeholder="Добавить новый город" id="cityInput"></label>
+                    <button class="circleButtons" id="addFavButton" type="submit"><img src="resources/addButtonIcon.png" class="buttonIcon"></button>
+                </form>
+            </div>
+
+            <ul id="cities">
+                <template id="favTemplate">
+                    <li class="otherCities">
+                        <div class="cityNameString">
+                            <h3 class="cityName"></h3>
+                            <p class="cityTemp"><span class="tempValue"></span>°C</p>
+                            <img alt="icon" class="weatherIcons">
+                            <button class="closeButtons"><img src="resources/crossIcon.png" class="buttonIcon" ></button>
+                        </div>
+                        <ul class="weather other">
+                            <li class="parameters"><p class="parName">Ветер</p>
+                                <p class="value">Moderate breeze, 6.0 m/s, North-northwest</p></li>
+                            <li class="parameters"><p class="parName">Облачность</p>
+                                <p class="value">Broken clouds</p></li>
+                            <li class="parameters"><p class="parName">Давление</p>
+                                <p class="value">1013 hpa</p></li>
+                            <li class="parameters"><p class="parName">Влажность</p>
+                                <p class="value">52 %</p></li>
+                            <li class="parameters"><p class="parName">Координаты</p>
+                                <p class="value">[59.88, 30.42]</p></li>                                       
+                        </ul>
+                    </li>
+                </template>
+                <template id="loaderTemp">
+                    <li class="loader">
+                        <img src="resources/updateIcon.png"  class="loaderIcon">
+                        <p>Загрузка данных...</p>
+                    </li>
+                </template>
+            </ul>           
+            
+
+        </main>
+        <script src="lab2.js"></script>
+    </body>
+
+</html>
