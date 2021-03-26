@@ -10,60 +10,37 @@ function weatherByCityName(city){
   return fetch('http://localhost:3000/weather/city?q=' + city)
     .then((response) => {
       if(response.ok){
-          return response.json();
-      }
-      else{
-          alert('The city was not found!')
-          return null;
-      }    
+        return response.json();
+      }  
     })
-    .catch(() => {
-      alert('Connection problem.');
-    });
 }
 
 function weatherByCoords(lon, lat){
   return fetch('http://localhost:3000/weather/coordinates?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + key)
     .then((response) => {
       if(response.ok){
-          return response.json();
-      }
-      else{
-          alert('Wrong coordinates!');
-          return null;
+        return response.json();
       }    
     })
-    .catch(() => {
-      alert('Connection problem.');
-    });
 }
 
 function favList(){
   return fetch('http://localhost:3000/favourites/list')
     .then((response) => {
       if(response.ok){
-          return response.json();
+        return response.json();
       }  
     })
-    .catch(() => {
-      alert('Connection problem.');
-    });
 }
 
 function addToFavList(city){
-  return fetch('http://localhost:3000/favourites/add?q=' + city)
-    .then((response) => {})
-    .catch(() => {
-      alert('Connection problem.');
-    });
+  return fetch('http://localhost:3000/favourites/add?q=' + city, {method: 'POST'})
+    .catch((err) => {})
 }
 
 function deleteFromFavList(city){
-  return fetch('http://localhost:3000/favourites/delete?q=' + city)
-    .then((response) => {})
-    .catch(() => {
-      alert('Connection problem.');
-    });
+  return fetch('http://localhost:3000/favourites/delete?q=' + city, {method: 'DELETE'})
+    .catch((err) => {});
 }
 
 function fullCurrentCity(data){
@@ -99,7 +76,9 @@ function setDefaultCity(){
   weatherByCityName(localStorage.getItem('defaultCity')).then((data) => {
     if(data != null){      
       fullCurrentCity(data);
-      document.querySelector('header').querySelector('.loader').remove();
+      if(document.querySelector('header').querySelector('.loader') != null){
+        document.querySelector('header').querySelector('.loader').remove();
+      } 
       mainSection.style.display = mainDisp;    
     }
   });
@@ -121,15 +100,14 @@ function addFavouriteCity(city, isNew){
     }); 
   }    
   weatherByCityName(city).then((data) => {
-    if(data != null){
-      document.querySelector('#cities').querySelector('.loader').remove();
+    if(data != null){      
       fullFavouriteCity(data);      
       if(isNew){        
         addToFavList(city);
       }      
-    }    
-  })
-  favList();
+    }   
+  })  
+  document.querySelector('#cities').querySelector('.loader').remove();
 }
 
 function showFavouriteCities(){

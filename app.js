@@ -5,7 +5,7 @@ var Cities = require('./dbSchema');
 const mydb = 'mongodb+srv://dbusr:dbpss@cluster0.7egpj.mongodb.net/fav_cities?retryWrites=true&w=majority';
 const path = require('path');
 const fetch = require('node-fetch');
-const app = express();
+var app = express()
 
 app.use(express.static(__dirname + '/public'));
 
@@ -23,15 +23,8 @@ function getWeatherByCityName(city){
     .then((response) => {
       if(response.ok){
           return response.json();
-      }
-      else{
-          alert('The city was not found!')
-          return null;
-      }    
+      }  
     })
-    .catch(() => {
-      alert('Connection problem.');
-    });
 }
 
 function getWeatherByCoords(lat, lon){
@@ -40,14 +33,7 @@ function getWeatherByCoords(lat, lon){
       if(response.ok){
           return response.json();
       }
-      else{
-          alert('Wrong coordinates!')
-          return null;
-      }    
     })
-    .catch(() => {
-      alert('Connection problem.');
-    });
 }
 
 app.get('/', (req, res) => {
@@ -60,9 +46,14 @@ app.get('/weather/city', (req, res) => {
       res.json(data);
     }
     else{
+      console.log("The city wasn't found!");
       res.status(404);
     }
-  })  
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500);
+  })
 })
 
 app.get('/weather/coordinates', (req, res) => {
@@ -71,32 +62,36 @@ app.get('/weather/coordinates', (req, res) => {
       res.json(data);
     }
     else{
+      console.log("Wrong coordinates!");
       res.status(404);
     }
+  })
+  .catch((err) =>{
+    console.log(err);
+    res.status(500);
   })
 })
 
 app.post('/favourites/add', (req, res) => {
-  let nc = new Cities({name: req.query.q});
-  nc.save();
-  res.status(200).end();
+  try {
+    let nc = new Cities({name: req.query.q});
+    nc.save();
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+  }  
 })
 
 app.delete('/favourites/delete', (req, res) => {
   Cities.findOneAndDelete({name: req.query.q}, function(err, result){             
-    if(err) return console.log(err);    
-    res.status(200).end();
+    if(err){return console.log(err);}  
+    res.status(200);
   });
 })
 
-app.get('/favourites/list', (req, res) => {  
-  Cities.find({}, function(err, cities){ 
-    if(err) return console.log(err);
-    cNames = [];
-    for(let i = 0; i < cities.length; i++){
-      cNames[i] = cities[i].name;
-    }
-    console.log(cNames);
+app.get('/favourites/list', (req, res) => { 
+  Cities.find({}, function(err, cities){     
+    if(err){return console.log(err);} 
     res.send(cities);
   });
 });
