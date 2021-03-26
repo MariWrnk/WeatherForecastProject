@@ -100,11 +100,11 @@ function addFavouriteCity(city, isNew){
     }); 
   }    
   weatherByCityName(city).then((data) => {
-    if(data != null){      
-      fullFavouriteCity(data);      
+    if(data != null){   
       if(isNew){        
         addToFavList(city);
-      }      
+      } 
+      fullFavouriteCity(data);     
     }   
   })  
   document.querySelector('#cities').querySelector('.loader').remove();
@@ -120,10 +120,10 @@ function showFavouriteCities(){
 
 function activateButton(button, cityName){
   button.addEventListener('click', () => {
+    deleteFromFavList(cityName);
     cn = '#' + cityName;
     city = document.querySelector(cn);
-    city.remove();
-    deleteFromFavList(cityName);
+    city.remove();    
   });
 }
 
