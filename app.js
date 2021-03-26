@@ -72,14 +72,19 @@ app.get('/weather/coordinates', (req, res) => {
   })
 })
 
-app.post('/favourites/add', (req, res) => {
-  try {
-    let nc = new Cities({name: req.query.q});
-    nc.save();
-    res.status(200);
-  } catch (error) {
-    console.log(error);
-  }  
+app.post('/favourites/add', (req, res) => { 
+  Cities.findOne({name: req.query.q}, function(err, ct){     
+    if(err){return console.log(err);} 
+    if(ct){
+      console.log('City is already in favourites!');
+      res.status(400);
+    }
+    else{
+      let nc = new Cities({name: req.query.q});
+      nc.save();
+      res.status(200);
+    }    
+  });    
 })
 
 app.delete('/favourites/delete', (req, res) => {

@@ -34,7 +34,10 @@ function favList(){
 }
 
 function addToFavList(city){
-  return fetch('http://localhost:3000/favourites/add?q=' + city, {method: 'POST'})
+  return fetch('http://localhost:3000/favourites/add?q=' + city, {method: 'POST'})  
+    .then((response) => {
+      return response;
+    })  
     .catch((err) => {})
 }
 
@@ -88,23 +91,19 @@ function addFavouriteCity(city, isNew){
   city = city.charAt(0).toUpperCase () + city.substr(1).toLowerCase ();
   let lclone = loaderTemp.content.cloneNode(true);
   document.querySelector('#cities').prepend(lclone);
-  if(isNew){
-    favList().then((data) => {
-      data.forEach(ct => {
-        if(ct.name == city){
-          document.querySelector('#cities').querySelector('.loader').remove();
-          alert('City is already in favourites!');      
-          return;
-        }    
-      });
-    }); 
-  }    
   weatherByCityName(city).then((data) => {
     if(data != null){   
       if(isNew){        
-        addToFavList(city);
+        addToFavList(city)
+        .then((response) => {
+          if(response.ok){
+            fullFavouriteCity(data);
+          }
+        })
       } 
-      fullFavouriteCity(data);     
+      else{
+        fullFavouriteCity(data); 
+      }          
     }   
   })  
   document.querySelector('#cities').querySelector('.loader').remove();
