@@ -77,12 +77,12 @@ app.post('/favourites/add', (req, res) => {
     if(err){return console.log(err);} 
     if(ct){
       console.log('City is already in favourites!');
-      res.status(400);
+      res.status(400).end();
     }
     else{
       let nc = new Cities({name: req.query.q});
       nc.save();
-      res.status(200);
+      res.status(200).end();
     }    
   });    
 })
@@ -90,7 +90,7 @@ app.post('/favourites/add', (req, res) => {
 app.delete('/favourites/delete', (req, res) => {
   Cities.findOneAndDelete({name: req.query.q}, function(err, result){             
     if(err){return console.log(err);}  
-    res.status(200);
+    res.status(200).end();
   });
 })
 

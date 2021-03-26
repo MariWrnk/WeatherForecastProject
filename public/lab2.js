@@ -17,11 +17,11 @@ function weatherByCityName(city){
 
 function weatherByCoords(lon, lat){
   return fetch('http://localhost:3000/weather/coordinates?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + key)
-    .then((response) => {
-      if(response.ok){
-        return response.json();
-      }    
-    })
+  .then((response) => {
+    if(response.ok){
+      return response.json();
+    }  
+  })
 }
 
 function favList(){
@@ -31,19 +31,6 @@ function favList(){
         return response.json();
       }  
     })
-}
-
-function addToFavList(city){
-  return fetch('http://localhost:3000/favourites/add?q=' + city, {method: 'POST'})  
-    .then((response) => {
-      return response;
-    })  
-    .catch((err) => {})
-}
-
-function deleteFromFavList(city){
-  return fetch('http://localhost:3000/favourites/delete?q=' + city, {method: 'DELETE'})
-    .catch((err) => {});
 }
 
 function fullCurrentCity(data){
@@ -94,12 +81,13 @@ function addFavouriteCity(city, isNew){
   weatherByCityName(city).then((data) => {
     if(data != null){   
       if(isNew){        
-        addToFavList(city)
-        .then((response) => {
-          if(response.ok){
-            fullFavouriteCity(data);
-          }
-        })
+        return fetch('http://localhost:3000/favourites/add?q=' + city, {method: 'POST'})  
+          .then((response) => {
+            if(response.ok){
+              fullFavouriteCity(data);
+            }
+          })  
+          .catch((err) => {})                
       } 
       else{
         fullFavouriteCity(data); 
@@ -118,12 +106,19 @@ function showFavouriteCities(){
 }
 
 function activateButton(button, cityName){
-  button.addEventListener('click', () => {
-    deleteFromFavList(cityName);
-    cn = '#' + cityName;
-    city = document.querySelector(cn);
-    city.remove();    
-  });
+  button.addEventListener('click', cls);
+  function cls(){
+    button.removeEventListener('click', cls);
+    return fetch('http://localhost:3000/favourites/delete?q=' + cityName, {method: 'DELETE'})
+      .then((response) => {
+        if(response.ok){         
+          let cn = '#' + cityName;
+          city = document.querySelector(cn);
+          city.remove(); 
+        }
+      })
+      .catch((err) => {}); 
+  }
 }
 
 function getLocation() {  
