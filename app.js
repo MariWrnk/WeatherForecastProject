@@ -46,13 +46,11 @@ app.get('/weather/city', (req, res) => {
       res.json(data);
     }
     else{
-      console.log("The city wasn't found!");
-      res.status(404);
+      res.sendStatus(404);
     }
   })
   .catch((err) => {
-    console.log(err);
-    res.status(500);
+    res.sendStatus(500);
   })
 })
 
@@ -62,13 +60,11 @@ app.get('/weather/coordinates', (req, res) => {
       res.json(data);
     }
     else{
-      console.log("Wrong coordinates!");
-      res.status(404);
+      res.sendStatus(404);
     }
   })
   .catch((err) =>{
-    console.log(err);
-    res.status(500);
+    res.sendStatus(500);
   })
 })
 
@@ -76,13 +72,12 @@ app.post('/favourites/add', (req, res) => {
   Cities.findOne({name: req.query.q}, function(err, ct){     
     if(err){return console.log(err);} 
     if(ct){
-      console.log('City is already in favourites!');
-      res.status(400).end();
+      res.sendStatus(400);
     }
     else{
       let nc = new Cities({name: req.query.q});
       nc.save();
-      res.status(200).end();
+      res.sendStatus(200);
     }    
   });    
 })
@@ -90,7 +85,7 @@ app.post('/favourites/add', (req, res) => {
 app.delete('/favourites/delete', (req, res) => {
   Cities.findOneAndDelete({name: req.query.q}, function(err, result){             
     if(err){return console.log(err);}  
-    res.status(200).end();
+    res.sendStatus(200);
   });
 })
 

@@ -11,7 +11,13 @@ function weatherByCityName(city){
     .then((response) => {
       if(response.ok){
         return response.json();
+      }
+      if(response.status == 404){
+        alert('The city was not found!');
       }  
+      if(response.status == 500){
+        alert('Connection problem!');
+      }
     })
 }
 
@@ -21,6 +27,12 @@ function weatherByCoords(lon, lat){
     if(response.ok){
       return response.json();
     }  
+    if(response.status == 404){
+      alert('Wrong coordinates!');
+    }  
+    if(response.status == 500){
+      alert('Connection problem!');
+    }
   })
 }
 
@@ -86,6 +98,9 @@ function addFavouriteCity(city, isNew){
             if(response.ok){
               fullFavouriteCity(data);
             }
+            if(response.status == 400){
+              alert('City is already in favourites!');
+            }  
           })  
           .catch((err) => {})                
       } 
